@@ -10,6 +10,7 @@ import time
 import json
 import platform
 import account
+import  school_scr
 
 browser = None
 if platform.system() == 'Windows':
@@ -29,5 +30,7 @@ def connect_to_school_website_and_login():
     browser.find_element(By.ID, "ctl00__Menu__SubjectsElectionMenuItem__Button").click()
 
 connect_to_school_website_and_login()
+
+list_of_position_of_subject = school_scr.filter_html_to_list_of_subject(browser.page_source)
 
 time.sleep(10)
