@@ -7,16 +7,13 @@ from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.opera import OperaDriverManager
 import time
-import json
 import platform
 import account
 import  school_scr
+import datetime
 
-browser = None
-if platform.system() == 'Windows':
-    browser = webdriver.Opera(OperaDriverManager().install())
-else:
-    browser = webdriver.Chrome(ChromeDriverManager().install())
+browser = webdriver.Chrome(ChromeDriverManager().install())
+
 
 user_name = account.user_name
 password = account.password
@@ -32,5 +29,20 @@ def connect_to_school_website_and_login():
 connect_to_school_website_and_login()
 
 list_of_position_of_subject = school_scr.filter_html_to_list_of_subject(browser.page_source)
+want_to_register_subject = account.subject_list
+wait_to_click_id = []
+
+for subject in want_to_register_subject:
+    for position in list_of_position_of_subject:
+        if subject["subject_id"] == position["subject_id"] and subject["subject_name"] == position["subject_name"] and subject["group"] == position["group"]:
+            wait_to_click_id.append(position['check_box_name'])
+
+count = 0
+for id in wait_to_click_id:
+    browser.find_element(By.NAME, id).click()
+    load_control = browser.find_element(By.ID, "ctl00_PageContent_UpdatePanel1_UpdateProgress1")
+    print(want_to_register_subject[count]["subject_name"])
+    count += 1
+
 
 time.sleep(10)
