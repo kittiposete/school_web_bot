@@ -13,8 +13,14 @@ def filter_html_to_list_of_subject(source):
         # for loop all tag in tr
         count = 0
         for tag in tr:
+            check_box = None
+            subject_name = None
+            
             count += 1
-            print(tag)
+            if count == 1:
+                check_box = tag
+            if count == 2:
+                subject_name = tag
 
 
     print(list_of_position_of_subject)
