@@ -37,4 +37,4 @@ def register_subject(want_to_register_subject):
         print(want_to_register_subject[count]["subject_name"])
 
 
-    time.sleep(10)
+    time.sleep(30)
