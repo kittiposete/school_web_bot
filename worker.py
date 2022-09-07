@@ -3,13 +3,14 @@ import datetime
 from selenium.webdriver.common.by import By
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
-import time
 import account
 import  school_scr
 
 def register_subject(want_to_register_subject):
-    browser = webdriver.Chrome(ChromeDriverManager().install())
-
+    # start browser without GUI
+    options = webdriver.ChromeOptions()
+    options.add_argument('headless')
+    browser = webdriver.Chrome(ChromeDriverManager().install(), options=options)
 
     user_name = account.user_name
     password = account.password
