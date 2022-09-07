@@ -1,3 +1,5 @@
+import datetime
+
 from selenium.webdriver.common.by import By
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
@@ -34,7 +36,17 @@ def register_subject(want_to_register_subject):
     for id in wait_to_click_id:
         browser.find_element(By.NAME, id).click()
         load_control = browser.find_element(By.ID, "ctl00_PageContent_UpdatePanel1_UpdateProgress1")
+        start_time = datetime.datetime.now()
+        start_load = False
+        while True:
+            if datetime.datetime.now() - start_time > datetime.timedelta(seconds=5):
+                break
+            try:
+                if load_control.get_attribute("style") == "display: block;" and start_load == False:
+                    start_load = True
+                if load_control.get_attribute("style") == "display: none;" and start_load == True:
+                    break
+            except:
+                pass
         print(want_to_register_subject[count]["subject_name"])
-
-
-    time.sleep(30)
+    exit()
