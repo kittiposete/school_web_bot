@@ -1,4 +1,3 @@
-
 import json
 import threading
 import time
@@ -10,7 +9,7 @@ list_of_subject = account.subject_list
 print("strating 2")
 list_of_thread = []
 complete_subject = []
-max_thread = 60
+max_thread = 100
 # run worker as thread
 # create json if file not exist
 # with open('complete.json', 'w') as f:

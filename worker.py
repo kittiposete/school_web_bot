@@ -73,7 +73,16 @@ def register_subject(want_to_register_subject):
     count = 0
     for id in wait_to_click_id:
         print("click")
-        browser.find_element(By.NAME, id).click()
+        start_time = datetime.datetime.now()
+        while True:
+            try:
+                browser.find_element(By.NAME, id).click()
+                break
+            except:
+                if (datetime.datetime.now() - start_time).seconds > time_out:
+                    exit()
+
+
         start_time = datetime.datetime.now()
         while True:
             try:
@@ -102,6 +111,13 @@ def register_subject(want_to_register_subject):
         # with open('complete.json', 'w') as f:
         #     json.dump(data, f)
         # count += 1
-        time.sleep(10)
+        # time.sleep(10)
 
 
+# register_subject(       [
+#         {
+#             "subject_id": "อ22236",
+#             "subject_name": "กิจกรรมเพิ่มพูนคำศัพท์ภาษาอังกฤษ4",
+#             "group": "1"
+#         }
+#     ])
