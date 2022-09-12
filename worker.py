@@ -1,12 +1,9 @@
 import datetime
-import time
-
 from selenium.webdriver.common.by import By
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 import account
 import school_scr
-import json
 
 
 def register_subject(want_to_register_subject):

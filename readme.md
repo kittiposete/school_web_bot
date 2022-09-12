@@ -1,10 +1,19 @@
-create json database file
-path = 'C:\\Users\\user\\Document\\database.json'
+this software support macos windows but never test in linux
 
-Hello world DONT Forget to change path !
+befor run bot your computer have to installed google chome
+
+to set your user account and sucject list create json database file
+your have to change json path at file account.py
+
+this is example json Structure you have to create
+all of data in json is string only
+
+*** important ***
+your subject name have to remove space
+
 {
-    username:
-    password:
+    "username": "your username",
+    "password": "your password",
     "subject_list": [
         {
             "subject_id": "ท22211",
