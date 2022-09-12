@@ -1,11 +1,9 @@
 import platform
 import json
 
-
-if platform.system() == 'Windows':
-    database_path = 'C:\\Users\\user\\Document\\database.json'
-else:
-    database_path = '/Users/kittipos/Documents/database.json'
+# TODO: change your database to your json file
+# you can see Structure in readme.md
+database_path = '/Users/kittipos/Documents/database.json'
 
 print(database_path)
 database = json.load(open(database_path))
