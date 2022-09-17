@@ -7,6 +7,10 @@ your have to change json path at file account.py
 
 this is example json Structure you have to create
 all of data in json is string only
+
+*** important ***
+your subject name have to remove space
+
 {
     "username": "your username",
     "password": "your password",
